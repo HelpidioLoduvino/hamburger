@@ -33,7 +33,7 @@ class UserController extends Controller
             $admin = User::find($id);
 
             if($admin){
-                return view('admin_home', compact('admin'));
+                return view('main_admin', compact('admin'));
             }
         }
 
@@ -46,7 +46,7 @@ class UserController extends Controller
             $attendant = User::find($id);
 
             if($attendant){
-                return view ('attendant_home', compact('attendant'));
+                return view ('main_attendant', compact('attendant'));
             }
         }
     }
