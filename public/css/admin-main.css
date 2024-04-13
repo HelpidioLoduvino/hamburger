@@ -23,8 +23,13 @@ body{
     margin: 10px;
 }
 
-.nav-link:hover{
-    color: goldenrod;
+.menu-link.active {
+    color: black !important;
+    background-color: white !important;
+}
+
+.menu-link:hover {
+    color: black !important;
 }
 
 .sidebar-separator{

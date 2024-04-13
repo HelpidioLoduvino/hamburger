@@ -231,7 +231,7 @@
                             </span>
                             <form action="/registrar-cliente" method="post">
                                 @csrf
-                                <input type="hidden" name="type" value="cliente">
+                                <input type="hidden" name="type" value="atendente">
                                 <div data-mdb-input-init class="form-outline mb-4">
                                     <input type="text" name="name" class="form-control" />
                                     <label class="form-label" for="name">Nome</label>

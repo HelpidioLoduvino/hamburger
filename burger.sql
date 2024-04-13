@@ -96,8 +96,7 @@ CREATE TABLE `sessions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('AjOffhG1CXNQTj59dkZF2fZMR5nF8iNfP4cmEBZC',	2,	'192.168.144.1',	'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6.1 Safari/605.1.15',	'YTo2OntzOjY6Il90b2tlbiI7czo0MDoidDdyQnJ2b21PMnhrQ29EREZ2NmtUNElaY25ZbGVqR21KUXRvcUJ4MSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hZG1pbi1wcm9kdXRvcyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjI7czoyOiJpZCI7aToyO3M6NDoidHlwZSI7czo1OiJhZG1pbiI7fQ==',	1712006631),
-('UIHbswFJ7FsKNu9kNjocvZL5Gk2nT12BKtxkbF0C',	2,	'192.168.144.1',	'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6.1 Safari/605.1.15',	'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiUUtuWG1vYWNMVXJIdXpHbTVQM24xY0h5dkhzeVFDOXgxUFdUYkZPMyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hZG1pbi12ZW5kYXMiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToyO3M6MjoiaWQiO2k6MjtzOjQ6InR5cGUiO3M6NToiYWRtaW4iO30=',	1711983563);
+('AOaWyASEu00SggKkB2TsMipjl3vnpzwPu7T2pdId',	2,	'172.18.0.1',	'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6.1 Safari/605.1.15',	'YTo2OntzOjY6Il90b2tlbiI7czo0MDoibTlZeHVoU0Ntd1pXM05Ec3BDQjh3QlZFeVFHWU02YXlIUnZCSjYwcyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hZG1pbiI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjI7czoyOiJpZCI7aToyO3M6NDoidHlwZSI7czo1OiJhZG1pbiI7fQ==',	1713050291);
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
@@ -112,6 +111,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `surname`, `email`, `password`, `type`) VALUES
 (1,	'Johelsa',	'Mateus',	'johelsa@gmail.com',	'$2y$12$r9cJmKzcjgZNStAJHVUZHOSHIo9TzkhgubURoGbbs9bxiKMwZSHvq',	'cliente'),
-(2,	'Helpidio',	'Mateus',	'helpidiolafame@gmail.com',	'$2y$12$thYbtUOhdaaesCQ4zUNdQu0JrDKWkxygvjzD.CFEcmWqutpX/Ayl.',	'admin');
+(2,	'Helpidio',	'Mateus',	'helpidiolafame@gmail.com',	'$2y$12$thYbtUOhdaaesCQ4zUNdQu0JrDKWkxygvjzD.CFEcmWqutpX/Ayl.',	'admin'),
+(3,	'Josefa',	'Zinga',	'josefa@gmail.com',	'$2y$12$UEXJmaU8imefa0fe/QUlUu6rDyuktY/JxAjJapRheOVS3IvlviuLq',	'atendente');
 
--- 2024-04-01 21:24:11
+-- 2024-04-13 23:29:27

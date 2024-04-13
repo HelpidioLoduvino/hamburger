@@ -39,6 +39,18 @@ class UserController extends Controller
 
     }
 
+    public function showAttendantHome(){
+        $id = Session::get('id');
+
+        if($id){
+            $attendant = User::find($id);
+
+            if($attendant){
+                return view ('attendant_home', compact('attendant'));
+            }
+        }
+    }
+
     public function storeClient(Request $request){
         $validor = $request->validate([
             'name' => 'required|string',
@@ -91,6 +103,9 @@ class UserController extends Controller
                         break;
                     case 'admin':
                         return redirect('/admin');
+                        break;
+                    case 'atendente':
+                        return redirect('/atendente');
                         break;
                     default:
                         return view('/login')->with('error', 'Erro ao Fazer Login');
