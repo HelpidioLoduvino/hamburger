@@ -1,0 +1,37 @@
+body{
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.sidebar{
+    background-color: #011638;
+    border-radius: 0;
+    color: white;
+}
+
+.main{
+    border-radius: 0;
+}
+
+.user-icon{
+    color: white;
+    font-size: 100px;
+}
+
+.sidebar-menu{
+    font-size: 20px;
+    margin: 10px;
+}
+
+.nav-link:hover{
+    color: goldenrod;
+}
+
+.sidebar-separator{
+    border: 1px solid goldenrod;
+    border-radius: 20px;
+}
+
+.text-change{
+    color: goldenrod;
+}

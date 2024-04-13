@@ -1,0 +1,40 @@
+.title{
+    color: white;
+}
+
+.title-separator{
+    border: 2px solid blanchedalmond;
+}
+
+.banner{
+    height: 600px;
+    overflow: hidden;
+}
+
+.banner-img{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.banner-text {
+    position: absolute;
+    top: 30%;
+    left: 23%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+    text-align:start;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+.soda-bg{
+    background-color: blanchedalmond;
+}
+
+.title-soda-separator{
+    border: 2px solid red;
+}

@@ -1,0 +1,22 @@
+.vertical-separator{
+    border: 1px solid blue;
+    height: 40px;
+}
+
+.calendar-table {
+    border-collapse: collapse;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.calendar-table  th, td {
+    padding: 1px;
+    text-align: center;
+}
+
+.current-day {
+    background-color: blue;
+    color: #fff;
+    border-radius: 50%;
+}
+

@@ -1,0 +1,30 @@
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+.main-body{
+    background-color: sienna;
+}
+
+.navbar-content{
+    color: white;
+}
+
+.navbar-content:hover{
+    color: blanchedalmond;
+}
+
+.footer{
+    box-shadow: -4px 5px 8px rgba(0, 0, 0, 1);
+}
+
+.social-networks{
+    color: white;
+}
+
+.footer-content{
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
