@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
+use App\Models\Stock;
+use App\Models\Hamburger;
+use App\Models\SoftDrink;
 
 class UserController extends Controller
 {
@@ -31,9 +34,17 @@ class UserController extends Controller
         if($id){
 
             $admin = User::find($id);
+            $stock = Stock::all();
+            $soft_drinks = Stock::where('item_type', '=', 'Refrigerante')->get();
+            $hamburgers = Hamburger::all();
+            $soft_drinks = SoftDrink::all();
 
             if($admin){
-                return view('main_admin', compact('admin'));
+                return view('main_admin', compact('admin',
+                'stock',
+                'soft_drinks',
+                'hamburgers',
+                'soft_drinks'));
             }
         }
 

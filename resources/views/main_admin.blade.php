@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="bootstrap/css/mdb.min.css">
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
@@ -19,8 +19,7 @@
 </style>
 
 <body>
-
-    <div class="row g-0">
+    <div class="row g-0" style="position:relative; overflow:hidden;">
         <div class="col-md-3">
             <div class="sidebar card card-body" style="height: 700px;">
                 <div class="user-img d-flex justify-content-center">
@@ -129,10 +128,8 @@
                                 </div>
 
                                 @if ($admin)
-                                <div class="card card-body mt-3" style="border-radius: 0;">
+                                <div class="card card-body mt-3" style="border-radius: 0; height: 250px;">
                                     <h5 class="card-title d-flex justify-content-center">Detalhes do perfil</h5>
-                                    <p class="card-text mt-3">Nome: {{$admin->name}}</p>
-                                    <p class="card-text">Sobrenome: {{$admin->surname}}</p>
                                     <p class="card-text">Email: {{$admin->email}}</p>
 
                                     <a class="btn btn-dark" href="#">Editar</a>
@@ -291,9 +288,15 @@
                                                 <div class="d-flex justify-content-center">
                                                     <form action="/adicionar-refrigerante" method="post">
                                                         @csrf
-                                                        <input type="text" name="soda_name" placeholder="Nome do produto" class="form-control mt-3">
-                                                        <textarea name="soda_descr" cols="5" rows="2" placeholder="Descrição" class="form-control mt-3"></textarea>
-                                                        <input type="number" name="soda_price" step="0.01" min="0.01" class="form-control mt-3" placeholder="Preço">
+                                                        <select name="drink_name" class="form-control mt-3">
+                                                            <option value="">-- Refrigerante --</option>
+                                                            @if ($soft_drinks->count() > 0)
+                                                                @foreach ($soft_drinks as $soft_drink)
+                                                                    <option value="{{$soft_drink->item}}">{{$soft_drink->item}}</option>
+                                                                @endforeach
+                                                            @endif
+                                                        </select>
+                                                        <input type="number" name="drink_price" step="0.01" min="0.01" class="form-control mt-3" placeholder="Preço">
                                                         <span class="d-flex justify-content-center">
                                                             <input type="submit" class="btn btn-success mt-3" value="Adicionar">
                                                         </span>
@@ -304,7 +307,64 @@
                                     </div>
 
                                     <div class="tab-pane fade show" id="listProduct" role="tabpanel" aria-labelledby="list-product-tab">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <thead class="table-dark">
+                                                    <tr>
+                                                        <th class="text-center">Nome</th>
+                                                        <th class="text-center">Preço</th>
+                                                        <th class="text-center">Editar</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @if ($hamburgers->count() > 0)
+                                                        @foreach ($hamburgers as $burger)
+                                                            <tr>
+                                                                <td>{{$burger->burger_name}}</td>
+                                                                <td>{{$burger->burger_price}}</td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-center">
+                                                                        <a class="btn btn-primary me-2" href="#">
+                                                                            <i class="fas fa-pencil-alt"></i>
+                                                                        </a>
+                                                                        <form action="/apagar-produto" method="post">
+                                                                            @csrf
+                                                                            <button class="btn btn-danger" type="submit">
+                                                                                <i class="fas fa-trash-alt"></i>
+                                                                            </button>
+                                                                        </form>
+                                                                    </div>
+                                                                </td>
 
+                                                            </tr>
+                                                        @endforeach
+                                                    @endif
+
+                                                    @if ($soft_drinks->count() > 0)
+                                                    @foreach ($soft_drinks as $drink)
+                                                        <tr>
+                                                            <td>{{$drink->drink_name}}</td>
+                                                            <td>{{$drink->drink_price}}</td>
+                                                            <td>
+                                                                <div class="d-flex justify-content-center">
+                                                                    <a class="btn btn-primary me-2" href="#">
+                                                                        <i class="fas fa-pencil-alt"></i>
+                                                                    </a>
+                                                                    <form action="/apagar-produto" method="post">
+                                                                        @csrf
+                                                                        <button class="btn btn-danger" type="submit">
+                                                                            <i class="fas fa-trash-alt"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            </td>
+
+                                                        </tr>
+                                                    @endforeach
+                                                @endif
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -330,11 +390,19 @@
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="addStock" role="tabpanel" aria-labelledby="add-stock-tab">
                                         <div class="container d-flex justify-content-center">
-                                            <form action="/adicionar-stock" method="post">
+                                            <form action="/adicionar-estoque" method="post">
                                                 @csrf
-                                                <input type="text" name="stock_name" class="form-control mb-3" placeholder="Item">
+                                                <input type="text" name="item" class="form-control mb-3" placeholder="Item">
 
-                                                <input type="number" name="quantity" class="form-control mb-3" placeholder="Quantidade">
+                                                <input type="number" name="total" class="form-control mb-3" placeholder="Quantidade">
+
+                                               <select name="item_type" class="form-control mb-3">
+                                                <option value="">-- Categoria --</option>
+                                                    <option value="Carne De Hamburguer">Carne De Hamburguer</option>
+                                                    <option value="Refrigerante">Refrigerante</option>
+                                               </select>
+
+                                                <input type="hidden" name="date" id="dateInput" value="">
 
                                                 <input type="submit" value="Adicionar" class="btn btn-success">
                                             </form>
@@ -346,12 +414,35 @@
                                                 <table class="table table-striped">
                                                     <thead class="table-dark">
                                                         <tr>
-                                                            <th>ID</th>
-                                                            <th>Item</th>
-                                                            <th>Quantidade</th>
-                                                            <th>Data</th>
+                                                            <th class="text-center">ID</th>
+                                                            <th class="text-center">Item</th>
+                                                            <th class="text-center">Total</th>
+                                                            <th class="text-center">Disponível</th>
+                                                            <th class="text-center">Data</th>
                                                         </tr>
                                                     </thead>
+                                                    <tbody>
+                                                        @if ($stock->isNotEmpty())
+                                                            @foreach ($stock as $item)
+                                                                <tr>
+                                                                    <td>{{$item->id}}</td>
+                                                                    <td>{{$item->item}}</td>
+                                                                    <td>{{$item->total}}</td>
+                                                                    <td>{{$item->available}}</td>
+                                                                    <td>{{$item->date}}</td>
+                                                                </tr>
+                                                            @endforeach
+                                                        @else
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td><h5>Nenhum Item encontrado</h5></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+
+                                                        @endif
+                                                    </tbody>
                                                 </table>
                                             </div>
                                         </div>
@@ -600,5 +691,20 @@
             showPage(1);
         });
     </script>
+
+<script>
+    // Obtém a data atual
+    var dataAtual = new Date();
+
+    // Formata a data no formato 'YYYY-MM-DD'
+    var ano = dataAtual.getFullYear();
+    var mes = (dataAtual.getMonth() + 1).toString().padStart(2, '0'); // Mês é baseado em zero, então é necessário adicionar 1
+    var dia = dataAtual.getDate().toString().padStart(2, '0');
+    var dataFormatada = ano + '-' + mes + '-' + dia;
+
+    // Define o valor formatado no input
+    document.getElementById('dateInput').value = dataFormatada;
+</script>
+
 </body>
 </html>

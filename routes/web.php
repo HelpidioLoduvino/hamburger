@@ -13,3 +13,6 @@ Route::get('/atendente', [UserController::class, 'showAttendantHome']);
 Route::post('/registrar-cliente', [UserController::class, 'storeClient']);
 Route::post('/entrar', [UserController::class, 'login']);
 Route::post('/sair', [UserController::class, 'logout']);
+Route::post('/adicionar-estoque', [ProductController::class, 'storeStock']);
+Route::post('/adicionar-hamburguer', [ProductController::class, 'storeBurger']);
+Route::post('/adicionar-refrigerante', [ProductController::class, 'storeSoftDrink']);
